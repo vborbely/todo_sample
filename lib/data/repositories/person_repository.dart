@@ -44,4 +44,9 @@ class PersonRepository {
   void removePerson(Person person) {
     _persons.remove(person);
   }
+
+  void loadPersons() {
+    _persons.clear();
+    init();
+  }
 }

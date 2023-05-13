@@ -11,19 +11,30 @@ class AppMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
+      // MOCK if needed
       providers: [
         RepositoryProvider<PersonRepository>(
           create: (context) => PersonRepository(),
         ),
       ],
-      child: MaterialApp(
-        // localization
-        // router
-        title: 'Flutter Bloc Sample',
-        theme: ThemeData(
-          primarySwatch: Colors.lime,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<PersonCubit>(
+            create: (BuildContext context) {
+              return PersonCubit(
+                personRepository: PersonRepository(),
+              )..loadPersons();
+            },
+          ),
+        ],
+        child: MaterialApp.router(
+          // localization
+          title: 'Flutter Bloc Sample',
+          theme: ThemeData(
+            primarySwatch: Colors.lime,
+          ),
+          routerConfig: router,
         ),
-        home: const HomeScreen(),
       ),
     );
   }

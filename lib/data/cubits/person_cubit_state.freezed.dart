@@ -20,46 +20,50 @@ mixin _$PersonCubitState {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
-    required TResult Function(Person person) loaded,
+    required TResult Function(List<Person> persons, Person? selected) loaded,
+    required TResult Function(E.Error error) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
-    TResult? Function(Person person)? loaded,
+    TResult? Function(List<Person> persons, Person? selected)? loaded,
+    TResult? Function(E.Error error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
-    TResult Function(Person person)? loaded,
+    TResult Function(List<Person> persons, Person? selected)? loaded,
+    TResult Function(E.Error error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitState value) init,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_LoadedState value) loaded,
+    required TResult Function(InitState value) init,
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(LoadedState value) loaded,
+    required TResult Function(ErrorState value) error,
   }) =>
       throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitState value)? init,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(InitState value)? init,
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(LoadedState value)? loaded,
+    TResult? Function(ErrorState value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitState value)? init,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
+    TResult Function(InitState value)? init,
+    TResult Function(LoadingState value)? loading,
+    TResult Function(LoadedState value)? loaded,
+    TResult Function(ErrorState value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -84,25 +88,25 @@ class _$PersonCubitStateCopyWithImpl<$Res, $Val extends PersonCubitState>
 }
 
 /// @nodoc
-abstract class _$$_InitStateCopyWith<$Res> {
-  factory _$$_InitStateCopyWith(
-          _$_InitState value, $Res Function(_$_InitState) then) =
-      __$$_InitStateCopyWithImpl<$Res>;
+abstract class _$$InitStateCopyWith<$Res> {
+  factory _$$InitStateCopyWith(
+          _$InitState value, $Res Function(_$InitState) then) =
+      __$$InitStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitStateCopyWithImpl<$Res>
-    extends _$PersonCubitStateCopyWithImpl<$Res, _$_InitState>
-    implements _$$_InitStateCopyWith<$Res> {
-  __$$_InitStateCopyWithImpl(
-      _$_InitState _value, $Res Function(_$_InitState) _then)
+class __$$InitStateCopyWithImpl<$Res>
+    extends _$PersonCubitStateCopyWithImpl<$Res, _$InitState>
+    implements _$$InitStateCopyWith<$Res> {
+  __$$InitStateCopyWithImpl(
+      _$InitState _value, $Res Function(_$InitState) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_InitState implements _InitState {
-  const _$_InitState();
+class _$InitState implements InitState {
+  const _$InitState();
 
   @override
   String toString() {
@@ -112,7 +116,7 @@ class _$_InitState implements _InitState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_InitState);
+        (other.runtimeType == runtimeType && other is _$InitState);
   }
 
   @override
@@ -123,7 +127,8 @@ class _$_InitState implements _InitState {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
-    required TResult Function(Person person) loaded,
+    required TResult Function(List<Person> persons, Person? selected) loaded,
+    required TResult Function(E.Error error) error,
   }) {
     return init();
   }
@@ -133,7 +138,8 @@ class _$_InitState implements _InitState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
-    TResult? Function(Person person)? loaded,
+    TResult? Function(List<Person> persons, Person? selected)? loaded,
+    TResult? Function(E.Error error)? error,
   }) {
     return init?.call();
   }
@@ -143,7 +149,8 @@ class _$_InitState implements _InitState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
-    TResult Function(Person person)? loaded,
+    TResult Function(List<Person> persons, Person? selected)? loaded,
+    TResult Function(E.Error error)? error,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -155,9 +162,10 @@ class _$_InitState implements _InitState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitState value) init,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_LoadedState value) loaded,
+    required TResult Function(InitState value) init,
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(LoadedState value) loaded,
+    required TResult Function(ErrorState value) error,
   }) {
     return init(this);
   }
@@ -165,9 +173,10 @@ class _$_InitState implements _InitState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitState value)? init,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(InitState value)? init,
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(LoadedState value)? loaded,
+    TResult? Function(ErrorState value)? error,
   }) {
     return init?.call(this);
   }
@@ -175,9 +184,10 @@ class _$_InitState implements _InitState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitState value)? init,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
+    TResult Function(InitState value)? init,
+    TResult Function(LoadingState value)? loading,
+    TResult Function(LoadedState value)? loaded,
+    TResult Function(ErrorState value)? error,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -187,30 +197,30 @@ class _$_InitState implements _InitState {
   }
 }
 
-abstract class _InitState implements PersonCubitState {
-  const factory _InitState() = _$_InitState;
+abstract class InitState implements PersonCubitState {
+  const factory InitState() = _$InitState;
 }
 
 /// @nodoc
-abstract class _$$_LoadingStateCopyWith<$Res> {
-  factory _$$_LoadingStateCopyWith(
-          _$_LoadingState value, $Res Function(_$_LoadingState) then) =
-      __$$_LoadingStateCopyWithImpl<$Res>;
+abstract class _$$LoadingStateCopyWith<$Res> {
+  factory _$$LoadingStateCopyWith(
+          _$LoadingState value, $Res Function(_$LoadingState) then) =
+      __$$LoadingStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadingStateCopyWithImpl<$Res>
-    extends _$PersonCubitStateCopyWithImpl<$Res, _$_LoadingState>
-    implements _$$_LoadingStateCopyWith<$Res> {
-  __$$_LoadingStateCopyWithImpl(
-      _$_LoadingState _value, $Res Function(_$_LoadingState) _then)
+class __$$LoadingStateCopyWithImpl<$Res>
+    extends _$PersonCubitStateCopyWithImpl<$Res, _$LoadingState>
+    implements _$$LoadingStateCopyWith<$Res> {
+  __$$LoadingStateCopyWithImpl(
+      _$LoadingState _value, $Res Function(_$LoadingState) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_LoadingState implements _LoadingState {
-  const _$_LoadingState();
+class _$LoadingState implements LoadingState {
+  const _$LoadingState();
 
   @override
   String toString() {
@@ -220,7 +230,7 @@ class _$_LoadingState implements _LoadingState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoadingState);
+        (other.runtimeType == runtimeType && other is _$LoadingState);
   }
 
   @override
@@ -231,7 +241,8 @@ class _$_LoadingState implements _LoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
-    required TResult Function(Person person) loaded,
+    required TResult Function(List<Person> persons, Person? selected) loaded,
+    required TResult Function(E.Error error) error,
   }) {
     return loading();
   }
@@ -241,7 +252,8 @@ class _$_LoadingState implements _LoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
-    TResult? Function(Person person)? loaded,
+    TResult? Function(List<Person> persons, Person? selected)? loaded,
+    TResult? Function(E.Error error)? error,
   }) {
     return loading?.call();
   }
@@ -251,7 +263,8 @@ class _$_LoadingState implements _LoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
-    TResult Function(Person person)? loaded,
+    TResult Function(List<Person> persons, Person? selected)? loaded,
+    TResult Function(E.Error error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -263,9 +276,10 @@ class _$_LoadingState implements _LoadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitState value) init,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_LoadedState value) loaded,
+    required TResult Function(InitState value) init,
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(LoadedState value) loaded,
+    required TResult Function(ErrorState value) error,
   }) {
     return loading(this);
   }
@@ -273,9 +287,10 @@ class _$_LoadingState implements _LoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitState value)? init,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(InitState value)? init,
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(LoadedState value)? loaded,
+    TResult? Function(ErrorState value)? error,
   }) {
     return loading?.call(this);
   }
@@ -283,9 +298,10 @@ class _$_LoadingState implements _LoadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitState value)? init,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
+    TResult Function(InitState value)? init,
+    TResult Function(LoadingState value)? loading,
+    TResult Function(LoadedState value)? loaded,
+    TResult Function(ErrorState value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -295,79 +311,100 @@ class _$_LoadingState implements _LoadingState {
   }
 }
 
-abstract class _LoadingState implements PersonCubitState {
-  const factory _LoadingState() = _$_LoadingState;
+abstract class LoadingState implements PersonCubitState {
+  const factory LoadingState() = _$LoadingState;
 }
 
 /// @nodoc
-abstract class _$$_LoadedStateCopyWith<$Res> {
-  factory _$$_LoadedStateCopyWith(
-          _$_LoadedState value, $Res Function(_$_LoadedState) then) =
-      __$$_LoadedStateCopyWithImpl<$Res>;
+abstract class _$$LoadedStateCopyWith<$Res> {
+  factory _$$LoadedStateCopyWith(
+          _$LoadedState value, $Res Function(_$LoadedState) then) =
+      __$$LoadedStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({Person person});
+  $Res call({List<Person> persons, Person? selected});
 }
 
 /// @nodoc
-class __$$_LoadedStateCopyWithImpl<$Res>
-    extends _$PersonCubitStateCopyWithImpl<$Res, _$_LoadedState>
-    implements _$$_LoadedStateCopyWith<$Res> {
-  __$$_LoadedStateCopyWithImpl(
-      _$_LoadedState _value, $Res Function(_$_LoadedState) _then)
+class __$$LoadedStateCopyWithImpl<$Res>
+    extends _$PersonCubitStateCopyWithImpl<$Res, _$LoadedState>
+    implements _$$LoadedStateCopyWith<$Res> {
+  __$$LoadedStateCopyWithImpl(
+      _$LoadedState _value, $Res Function(_$LoadedState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? person = null,
+    Object? persons = null,
+    Object? selected = freezed,
   }) {
-    return _then(_$_LoadedState(
-      null == person
-          ? _value.person
-          : person // ignore: cast_nullable_to_non_nullable
-              as Person,
+    return _then(_$LoadedState(
+      persons: null == persons
+          ? _value._persons
+          : persons // ignore: cast_nullable_to_non_nullable
+              as List<Person>,
+      selected: freezed == selected
+          ? _value.selected
+          : selected // ignore: cast_nullable_to_non_nullable
+              as Person?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_LoadedState implements _LoadedState {
-  const _$_LoadedState(this.person);
+class _$LoadedState implements LoadedState {
+  const _$LoadedState(
+      {final List<Person> persons = const <Person>[], this.selected = null})
+      : _persons = persons;
+
+  final List<Person> _persons;
+  @override
+  @JsonKey()
+  List<Person> get persons {
+    if (_persons is EqualUnmodifiableListView) return _persons;
+// ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_persons);
+  }
 
   @override
-  final Person person;
+  @JsonKey()
+  final Person? selected;
 
   @override
   String toString() {
-    return 'PersonCubitState.loaded(person: $person)';
+    return 'PersonCubitState.loaded(persons: $persons, selected: $selected)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadedState &&
-            (identical(other.person, person) || other.person == person));
+            other is _$LoadedState &&
+            const DeepCollectionEquality().equals(other._persons, _persons) &&
+            (identical(other.selected, selected) ||
+                other.selected == selected));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, person);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_persons), selected);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadedStateCopyWith<_$_LoadedState> get copyWith =>
-      __$$_LoadedStateCopyWithImpl<_$_LoadedState>(this, _$identity);
+  _$$LoadedStateCopyWith<_$LoadedState> get copyWith =>
+      __$$LoadedStateCopyWithImpl<_$LoadedState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
-    required TResult Function(Person person) loaded,
+    required TResult Function(List<Person> persons, Person? selected) loaded,
+    required TResult Function(E.Error error) error,
   }) {
-    return loaded(person);
+    return loaded(persons, selected);
   }
 
   @override
@@ -375,9 +412,10 @@ class _$_LoadedState implements _LoadedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
-    TResult? Function(Person person)? loaded,
+    TResult? Function(List<Person> persons, Person? selected)? loaded,
+    TResult? Function(E.Error error)? error,
   }) {
-    return loaded?.call(person);
+    return loaded?.call(persons, selected);
   }
 
   @override
@@ -385,11 +423,12 @@ class _$_LoadedState implements _LoadedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
-    TResult Function(Person person)? loaded,
+    TResult Function(List<Person> persons, Person? selected)? loaded,
+    TResult Function(E.Error error)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(person);
+      return loaded(persons, selected);
     }
     return orElse();
   }
@@ -397,9 +436,10 @@ class _$_LoadedState implements _LoadedState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitState value) init,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_LoadedState value) loaded,
+    required TResult Function(InitState value) init,
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(LoadedState value) loaded,
+    required TResult Function(ErrorState value) error,
   }) {
     return loaded(this);
   }
@@ -407,9 +447,10 @@ class _$_LoadedState implements _LoadedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitState value)? init,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(InitState value)? init,
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(LoadedState value)? loaded,
+    TResult? Function(ErrorState value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -417,9 +458,10 @@ class _$_LoadedState implements _LoadedState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitState value)? init,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
+    TResult Function(InitState value)? init,
+    TResult Function(LoadingState value)? loading,
+    TResult Function(LoadedState value)? loaded,
+    TResult Function(ErrorState value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -429,11 +471,158 @@ class _$_LoadedState implements _LoadedState {
   }
 }
 
-abstract class _LoadedState implements PersonCubitState {
-  const factory _LoadedState(final Person person) = _$_LoadedState;
+abstract class LoadedState implements PersonCubitState {
+  const factory LoadedState(
+      {final List<Person> persons, final Person? selected}) = _$LoadedState;
 
-  Person get person;
+  List<Person> get persons;
+  Person? get selected;
   @JsonKey(ignore: true)
-  _$$_LoadedStateCopyWith<_$_LoadedState> get copyWith =>
+  _$$LoadedStateCopyWith<_$LoadedState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ErrorStateCopyWith<$Res> {
+  factory _$$ErrorStateCopyWith(
+          _$ErrorState value, $Res Function(_$ErrorState) then) =
+      __$$ErrorStateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({E.Error error});
+}
+
+/// @nodoc
+class __$$ErrorStateCopyWithImpl<$Res>
+    extends _$PersonCubitStateCopyWithImpl<$Res, _$ErrorState>
+    implements _$$ErrorStateCopyWith<$Res> {
+  __$$ErrorStateCopyWithImpl(
+      _$ErrorState _value, $Res Function(_$ErrorState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$ErrorState(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as E.Error,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ErrorState implements ErrorState {
+  const _$ErrorState(this.error);
+
+  @override
+  final E.Error error;
+
+  @override
+  String toString() {
+    return 'PersonCubitState.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorState &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ErrorStateCopyWith<_$ErrorState> get copyWith =>
+      __$$ErrorStateCopyWithImpl<_$ErrorState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() loading,
+    required TResult Function(List<Person> persons, Person? selected) loaded,
+    required TResult Function(E.Error error) error,
+  }) {
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? loading,
+    TResult? Function(List<Person> persons, Person? selected)? loaded,
+    TResult? Function(E.Error error)? error,
+  }) {
+    return error?.call(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? loading,
+    TResult Function(List<Person> persons, Person? selected)? loaded,
+    TResult Function(E.Error error)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitState value) init,
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(LoadedState value) loaded,
+    required TResult Function(ErrorState value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitState value)? init,
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(LoadedState value)? loaded,
+    TResult? Function(ErrorState value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitState value)? init,
+    TResult Function(LoadingState value)? loading,
+    TResult Function(LoadedState value)? loaded,
+    TResult Function(ErrorState value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ErrorState implements PersonCubitState {
+  const factory ErrorState(final E.Error error) = _$ErrorState;
+
+  E.Error get error;
+  @JsonKey(ignore: true)
+  _$$ErrorStateCopyWith<_$ErrorState> get copyWith =>
       throw _privateConstructorUsedError;
 }
