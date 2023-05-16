@@ -26,7 +26,7 @@ void main() async {
   );
 
   await runZonedGuarded(() async {
-    runApp(AppMain());
+    runApp(const AppMain());
   }, (error, stackTrace) {
     logger.e(error);
     logger.e(stackTrace);

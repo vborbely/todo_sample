@@ -1,3 +1,4 @@
+import 'package:bloc_sample/application/application.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,6 +13,14 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Screen'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              context.go(AppRoute.settings);
+            },
+            icon: const Icon(Icons.settings),
+          ),
+        ],
       ),
       floatingActionButton: const _AddPersonButton(),
       body: const _ScreenBody(child: _PersonList()),
@@ -40,10 +49,10 @@ class _PersonList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var maxHeight = MediaQuery.of(context).size.height;
+    final maxHeight = MediaQuery.of(context).size.height;
+    final controller = context.watch<PersonCubit>();
     return BlocBuilder<PersonCubit, PersonCubitState>(
         builder: (context, state) {
-      final controller = context.read<PersonCubit>();
       final persons = state.maybeWhen(
           loaded: (persons, _) => persons, orElse: () => <Person>[]);
       return Container(
@@ -53,40 +62,40 @@ class _PersonList extends StatelessWidget {
         child: Material(
           child: ListView.builder(
             shrinkWrap: true,
-            itemCount: persons.length,
-            itemBuilder: (context, index) {
-              final person = persons[index];
-              return Padding(
-                padding:
+                itemCount: persons.length,
+                itemBuilder: (context, index) {
+                  final person = persons[index];
+                  return Padding(
+                    padding:
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                child: GestureDetector(
-                  onTap: () {
-                    controller.selectPerson(person);
-                    context.go('/person/${person.id}');
-                  },
-                  child: ListTile(
-                    tileColor: Colors.orangeAccent,
-                    minVerticalPadding: 5,
-                    style: ListTileStyle.list,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    title: Text(person.name),
-                    subtitle: Text('${person.age} years old'),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () {
-                        controller.deletePerson(person);
+                    child: GestureDetector(
+                      onTap: () {
+                        controller.selectPerson(person);
+                        context.go('/person/${person.id}');
                       },
+                      child: ListTile(
+                        tileColor: Colors.orangeAccent,
+                        minVerticalPadding: 5,
+                        style: ListTileStyle.list,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        title: Text(person.name),
+                        subtitle: Text('${person.age} years old'),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () {
+                            controller.deletePerson(person);
+                          },
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
-      );
-    });
+                  );
+                },
+              ),
+            ),
+          );
+        });
   }
 }
 

@@ -43,27 +43,27 @@ mixin _$PersonCubitState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitState value) init,
-    required TResult Function(LoadingState value) loading,
-    required TResult Function(LoadedState value) loaded,
-    required TResult Function(ErrorState value) error,
+    required TResult Function(PersonCubitInitState value) init,
+    required TResult Function(PersonCubitLoadingState value) loading,
+    required TResult Function(PersonCubitLoadedState value) loaded,
+    required TResult Function(PersonCubitErrorState value) error,
   }) =>
       throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitState value)? init,
-    TResult? Function(LoadingState value)? loading,
-    TResult? Function(LoadedState value)? loaded,
-    TResult? Function(ErrorState value)? error,
+    TResult? Function(PersonCubitInitState value)? init,
+    TResult? Function(PersonCubitLoadingState value)? loading,
+    TResult? Function(PersonCubitLoadedState value)? loaded,
+    TResult? Function(PersonCubitErrorState value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitState value)? init,
-    TResult Function(LoadingState value)? loading,
-    TResult Function(LoadedState value)? loaded,
-    TResult Function(ErrorState value)? error,
+    TResult Function(PersonCubitInitState value)? init,
+    TResult Function(PersonCubitLoadingState value)? loading,
+    TResult Function(PersonCubitLoadedState value)? loaded,
+    TResult Function(PersonCubitErrorState value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -88,25 +88,25 @@ class _$PersonCubitStateCopyWithImpl<$Res, $Val extends PersonCubitState>
 }
 
 /// @nodoc
-abstract class _$$InitStateCopyWith<$Res> {
-  factory _$$InitStateCopyWith(
-          _$InitState value, $Res Function(_$InitState) then) =
-      __$$InitStateCopyWithImpl<$Res>;
+abstract class _$$PersonCubitInitStateCopyWith<$Res> {
+  factory _$$PersonCubitInitStateCopyWith(_$PersonCubitInitState value,
+          $Res Function(_$PersonCubitInitState) then) =
+      __$$PersonCubitInitStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitStateCopyWithImpl<$Res>
-    extends _$PersonCubitStateCopyWithImpl<$Res, _$InitState>
-    implements _$$InitStateCopyWith<$Res> {
-  __$$InitStateCopyWithImpl(
-      _$InitState _value, $Res Function(_$InitState) _then)
+class __$$PersonCubitInitStateCopyWithImpl<$Res>
+    extends _$PersonCubitStateCopyWithImpl<$Res, _$PersonCubitInitState>
+    implements _$$PersonCubitInitStateCopyWith<$Res> {
+  __$$PersonCubitInitStateCopyWithImpl(_$PersonCubitInitState _value,
+      $Res Function(_$PersonCubitInitState) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitState implements InitState {
-  const _$InitState();
+class _$PersonCubitInitState implements PersonCubitInitState {
+  const _$PersonCubitInitState();
 
   @override
   String toString() {
@@ -116,7 +116,7 @@ class _$InitState implements InitState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitState);
+        (other.runtimeType == runtimeType && other is _$PersonCubitInitState);
   }
 
   @override
@@ -162,10 +162,10 @@ class _$InitState implements InitState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitState value) init,
-    required TResult Function(LoadingState value) loading,
-    required TResult Function(LoadedState value) loaded,
-    required TResult Function(ErrorState value) error,
+    required TResult Function(PersonCubitInitState value) init,
+    required TResult Function(PersonCubitLoadingState value) loading,
+    required TResult Function(PersonCubitLoadedState value) loaded,
+    required TResult Function(PersonCubitErrorState value) error,
   }) {
     return init(this);
   }
@@ -173,10 +173,10 @@ class _$InitState implements InitState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitState value)? init,
-    TResult? Function(LoadingState value)? loading,
-    TResult? Function(LoadedState value)? loaded,
-    TResult? Function(ErrorState value)? error,
+    TResult? Function(PersonCubitInitState value)? init,
+    TResult? Function(PersonCubitLoadingState value)? loading,
+    TResult? Function(PersonCubitLoadedState value)? loaded,
+    TResult? Function(PersonCubitErrorState value)? error,
   }) {
     return init?.call(this);
   }
@@ -184,10 +184,10 @@ class _$InitState implements InitState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitState value)? init,
-    TResult Function(LoadingState value)? loading,
-    TResult Function(LoadedState value)? loaded,
-    TResult Function(ErrorState value)? error,
+    TResult Function(PersonCubitInitState value)? init,
+    TResult Function(PersonCubitLoadingState value)? loading,
+    TResult Function(PersonCubitLoadedState value)? loaded,
+    TResult Function(PersonCubitErrorState value)? error,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -197,30 +197,30 @@ class _$InitState implements InitState {
   }
 }
 
-abstract class InitState implements PersonCubitState {
-  const factory InitState() = _$InitState;
+abstract class PersonCubitInitState implements PersonCubitState {
+  const factory PersonCubitInitState() = _$PersonCubitInitState;
 }
 
 /// @nodoc
-abstract class _$$LoadingStateCopyWith<$Res> {
-  factory _$$LoadingStateCopyWith(
-          _$LoadingState value, $Res Function(_$LoadingState) then) =
-      __$$LoadingStateCopyWithImpl<$Res>;
+abstract class _$$PersonCubitLoadingStateCopyWith<$Res> {
+  factory _$$PersonCubitLoadingStateCopyWith(_$PersonCubitLoadingState value,
+          $Res Function(_$PersonCubitLoadingState) then) =
+      __$$PersonCubitLoadingStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingStateCopyWithImpl<$Res>
-    extends _$PersonCubitStateCopyWithImpl<$Res, _$LoadingState>
-    implements _$$LoadingStateCopyWith<$Res> {
-  __$$LoadingStateCopyWithImpl(
-      _$LoadingState _value, $Res Function(_$LoadingState) _then)
+class __$$PersonCubitLoadingStateCopyWithImpl<$Res>
+    extends _$PersonCubitStateCopyWithImpl<$Res, _$PersonCubitLoadingState>
+    implements _$$PersonCubitLoadingStateCopyWith<$Res> {
+  __$$PersonCubitLoadingStateCopyWithImpl(_$PersonCubitLoadingState _value,
+      $Res Function(_$PersonCubitLoadingState) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadingState implements LoadingState {
-  const _$LoadingState();
+class _$PersonCubitLoadingState implements PersonCubitLoadingState {
+  const _$PersonCubitLoadingState();
 
   @override
   String toString() {
@@ -230,7 +230,8 @@ class _$LoadingState implements LoadingState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingState);
+        (other.runtimeType == runtimeType &&
+            other is _$PersonCubitLoadingState);
   }
 
   @override
@@ -276,10 +277,10 @@ class _$LoadingState implements LoadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitState value) init,
-    required TResult Function(LoadingState value) loading,
-    required TResult Function(LoadedState value) loaded,
-    required TResult Function(ErrorState value) error,
+    required TResult Function(PersonCubitInitState value) init,
+    required TResult Function(PersonCubitLoadingState value) loading,
+    required TResult Function(PersonCubitLoadedState value) loaded,
+    required TResult Function(PersonCubitErrorState value) error,
   }) {
     return loading(this);
   }
@@ -287,10 +288,10 @@ class _$LoadingState implements LoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitState value)? init,
-    TResult? Function(LoadingState value)? loading,
-    TResult? Function(LoadedState value)? loaded,
-    TResult? Function(ErrorState value)? error,
+    TResult? Function(PersonCubitInitState value)? init,
+    TResult? Function(PersonCubitLoadingState value)? loading,
+    TResult? Function(PersonCubitLoadedState value)? loaded,
+    TResult? Function(PersonCubitErrorState value)? error,
   }) {
     return loading?.call(this);
   }
@@ -298,10 +299,10 @@ class _$LoadingState implements LoadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitState value)? init,
-    TResult Function(LoadingState value)? loading,
-    TResult Function(LoadedState value)? loaded,
-    TResult Function(ErrorState value)? error,
+    TResult Function(PersonCubitInitState value)? init,
+    TResult Function(PersonCubitLoadingState value)? loading,
+    TResult Function(PersonCubitLoadedState value)? loaded,
+    TResult Function(PersonCubitErrorState value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -311,25 +312,25 @@ class _$LoadingState implements LoadingState {
   }
 }
 
-abstract class LoadingState implements PersonCubitState {
-  const factory LoadingState() = _$LoadingState;
+abstract class PersonCubitLoadingState implements PersonCubitState {
+  const factory PersonCubitLoadingState() = _$PersonCubitLoadingState;
 }
 
 /// @nodoc
-abstract class _$$LoadedStateCopyWith<$Res> {
-  factory _$$LoadedStateCopyWith(
-          _$LoadedState value, $Res Function(_$LoadedState) then) =
-      __$$LoadedStateCopyWithImpl<$Res>;
+abstract class _$$PersonCubitLoadedStateCopyWith<$Res> {
+  factory _$$PersonCubitLoadedStateCopyWith(_$PersonCubitLoadedState value,
+          $Res Function(_$PersonCubitLoadedState) then) =
+      __$$PersonCubitLoadedStateCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Person> persons, Person? selected});
 }
 
 /// @nodoc
-class __$$LoadedStateCopyWithImpl<$Res>
-    extends _$PersonCubitStateCopyWithImpl<$Res, _$LoadedState>
-    implements _$$LoadedStateCopyWith<$Res> {
-  __$$LoadedStateCopyWithImpl(
-      _$LoadedState _value, $Res Function(_$LoadedState) _then)
+class __$$PersonCubitLoadedStateCopyWithImpl<$Res>
+    extends _$PersonCubitStateCopyWithImpl<$Res, _$PersonCubitLoadedState>
+    implements _$$PersonCubitLoadedStateCopyWith<$Res> {
+  __$$PersonCubitLoadedStateCopyWithImpl(_$PersonCubitLoadedState _value,
+      $Res Function(_$PersonCubitLoadedState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -338,7 +339,7 @@ class __$$LoadedStateCopyWithImpl<$Res>
     Object? persons = null,
     Object? selected = freezed,
   }) {
-    return _then(_$LoadedState(
+    return _then(_$PersonCubitLoadedState(
       persons: null == persons
           ? _value._persons
           : persons // ignore: cast_nullable_to_non_nullable
@@ -353,8 +354,8 @@ class __$$LoadedStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadedState implements LoadedState {
-  const _$LoadedState(
+class _$PersonCubitLoadedState implements PersonCubitLoadedState {
+  const _$PersonCubitLoadedState(
       {final List<Person> persons = const <Person>[], this.selected = null})
       : _persons = persons;
 
@@ -380,7 +381,7 @@ class _$LoadedState implements LoadedState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadedState &&
+            other is _$PersonCubitLoadedState &&
             const DeepCollectionEquality().equals(other._persons, _persons) &&
             (identical(other.selected, selected) ||
                 other.selected == selected));
@@ -393,8 +394,9 @@ class _$LoadedState implements LoadedState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadedStateCopyWith<_$LoadedState> get copyWith =>
-      __$$LoadedStateCopyWithImpl<_$LoadedState>(this, _$identity);
+  _$$PersonCubitLoadedStateCopyWith<_$PersonCubitLoadedState> get copyWith =>
+      __$$PersonCubitLoadedStateCopyWithImpl<_$PersonCubitLoadedState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -436,10 +438,10 @@ class _$LoadedState implements LoadedState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitState value) init,
-    required TResult Function(LoadingState value) loading,
-    required TResult Function(LoadedState value) loaded,
-    required TResult Function(ErrorState value) error,
+    required TResult Function(PersonCubitInitState value) init,
+    required TResult Function(PersonCubitLoadingState value) loading,
+    required TResult Function(PersonCubitLoadedState value) loaded,
+    required TResult Function(PersonCubitErrorState value) error,
   }) {
     return loaded(this);
   }
@@ -447,10 +449,10 @@ class _$LoadedState implements LoadedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitState value)? init,
-    TResult? Function(LoadingState value)? loading,
-    TResult? Function(LoadedState value)? loaded,
-    TResult? Function(ErrorState value)? error,
+    TResult? Function(PersonCubitInitState value)? init,
+    TResult? Function(PersonCubitLoadingState value)? loading,
+    TResult? Function(PersonCubitLoadedState value)? loaded,
+    TResult? Function(PersonCubitErrorState value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -458,10 +460,10 @@ class _$LoadedState implements LoadedState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitState value)? init,
-    TResult Function(LoadingState value)? loading,
-    TResult Function(LoadedState value)? loaded,
-    TResult Function(ErrorState value)? error,
+    TResult Function(PersonCubitInitState value)? init,
+    TResult Function(PersonCubitLoadingState value)? loading,
+    TResult Function(PersonCubitLoadedState value)? loaded,
+    TResult Function(PersonCubitErrorState value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -471,32 +473,33 @@ class _$LoadedState implements LoadedState {
   }
 }
 
-abstract class LoadedState implements PersonCubitState {
-  const factory LoadedState(
-      {final List<Person> persons, final Person? selected}) = _$LoadedState;
+abstract class PersonCubitLoadedState implements PersonCubitState {
+  const factory PersonCubitLoadedState(
+      {final List<Person> persons,
+      final Person? selected}) = _$PersonCubitLoadedState;
 
   List<Person> get persons;
   Person? get selected;
   @JsonKey(ignore: true)
-  _$$LoadedStateCopyWith<_$LoadedState> get copyWith =>
+  _$$PersonCubitLoadedStateCopyWith<_$PersonCubitLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorStateCopyWith<$Res> {
-  factory _$$ErrorStateCopyWith(
-          _$ErrorState value, $Res Function(_$ErrorState) then) =
-      __$$ErrorStateCopyWithImpl<$Res>;
+abstract class _$$PersonCubitErrorStateCopyWith<$Res> {
+  factory _$$PersonCubitErrorStateCopyWith(_$PersonCubitErrorState value,
+          $Res Function(_$PersonCubitErrorState) then) =
+      __$$PersonCubitErrorStateCopyWithImpl<$Res>;
   @useResult
   $Res call({E.Error error});
 }
 
 /// @nodoc
-class __$$ErrorStateCopyWithImpl<$Res>
-    extends _$PersonCubitStateCopyWithImpl<$Res, _$ErrorState>
-    implements _$$ErrorStateCopyWith<$Res> {
-  __$$ErrorStateCopyWithImpl(
-      _$ErrorState _value, $Res Function(_$ErrorState) _then)
+class __$$PersonCubitErrorStateCopyWithImpl<$Res>
+    extends _$PersonCubitStateCopyWithImpl<$Res, _$PersonCubitErrorState>
+    implements _$$PersonCubitErrorStateCopyWith<$Res> {
+  __$$PersonCubitErrorStateCopyWithImpl(_$PersonCubitErrorState _value,
+      $Res Function(_$PersonCubitErrorState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -504,7 +507,7 @@ class __$$ErrorStateCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$ErrorState(
+    return _then(_$PersonCubitErrorState(
       null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -515,8 +518,8 @@ class __$$ErrorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorState implements ErrorState {
-  const _$ErrorState(this.error);
+class _$PersonCubitErrorState implements PersonCubitErrorState {
+  const _$PersonCubitErrorState(this.error);
 
   @override
   final E.Error error;
@@ -530,7 +533,7 @@ class _$ErrorState implements ErrorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorState &&
+            other is _$PersonCubitErrorState &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -540,8 +543,9 @@ class _$ErrorState implements ErrorState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorStateCopyWith<_$ErrorState> get copyWith =>
-      __$$ErrorStateCopyWithImpl<_$ErrorState>(this, _$identity);
+  _$$PersonCubitErrorStateCopyWith<_$PersonCubitErrorState> get copyWith =>
+      __$$PersonCubitErrorStateCopyWithImpl<_$PersonCubitErrorState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -583,10 +587,10 @@ class _$ErrorState implements ErrorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitState value) init,
-    required TResult Function(LoadingState value) loading,
-    required TResult Function(LoadedState value) loaded,
-    required TResult Function(ErrorState value) error,
+    required TResult Function(PersonCubitInitState value) init,
+    required TResult Function(PersonCubitLoadingState value) loading,
+    required TResult Function(PersonCubitLoadedState value) loaded,
+    required TResult Function(PersonCubitErrorState value) error,
   }) {
     return error(this);
   }
@@ -594,10 +598,10 @@ class _$ErrorState implements ErrorState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitState value)? init,
-    TResult? Function(LoadingState value)? loading,
-    TResult? Function(LoadedState value)? loaded,
-    TResult? Function(ErrorState value)? error,
+    TResult? Function(PersonCubitInitState value)? init,
+    TResult? Function(PersonCubitLoadingState value)? loading,
+    TResult? Function(PersonCubitLoadedState value)? loaded,
+    TResult? Function(PersonCubitErrorState value)? error,
   }) {
     return error?.call(this);
   }
@@ -605,10 +609,10 @@ class _$ErrorState implements ErrorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitState value)? init,
-    TResult Function(LoadingState value)? loading,
-    TResult Function(LoadedState value)? loaded,
-    TResult Function(ErrorState value)? error,
+    TResult Function(PersonCubitInitState value)? init,
+    TResult Function(PersonCubitLoadingState value)? loading,
+    TResult Function(PersonCubitLoadedState value)? loaded,
+    TResult Function(PersonCubitErrorState value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -618,11 +622,12 @@ class _$ErrorState implements ErrorState {
   }
 }
 
-abstract class ErrorState implements PersonCubitState {
-  const factory ErrorState(final E.Error error) = _$ErrorState;
+abstract class PersonCubitErrorState implements PersonCubitState {
+  const factory PersonCubitErrorState(final E.Error error) =
+      _$PersonCubitErrorState;
 
   E.Error get error;
   @JsonKey(ignore: true)
-  _$$ErrorStateCopyWith<_$ErrorState> get copyWith =>
+  _$$PersonCubitErrorStateCopyWith<_$PersonCubitErrorState> get copyWith =>
       throw _privateConstructorUsedError;
 }

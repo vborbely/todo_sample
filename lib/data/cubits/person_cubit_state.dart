@@ -7,13 +7,13 @@ part 'person_cubit_state.freezed.dart';
 
 @freezed
 class PersonCubitState with _$PersonCubitState {
-  const factory PersonCubitState.init() = InitState;
+  const factory PersonCubitState.init() = PersonCubitInitState;
 
-  const factory PersonCubitState.loading() = LoadingState;
+  const factory PersonCubitState.loading() = PersonCubitLoadingState;
 
   const factory PersonCubitState.loaded(
       {@Default(<Person>[]) List<Person> persons,
-      @Default(null) Person? selected}) = LoadedState;
+      @Default(null) Person? selected}) = PersonCubitLoadedState;
 
-  const factory PersonCubitState.error(E.Error error) = ErrorState;
+  const factory PersonCubitState.error(E.Error error) = PersonCubitErrorState;
 }

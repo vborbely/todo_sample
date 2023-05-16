@@ -6,24 +6,43 @@ import '../presentation/presentation.dart';
 import 'application.dart';
 
 class AppMain extends StatelessWidget {
-  AppMain({Key? key}) : super(key: key);
+  const AppMain({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final storageCubit = StorageCubit()..init();
+
     return MultiRepositoryProvider(
       // MOCK if needed
       providers: [
         RepositoryProvider<PersonRepository>(
           create: (context) => PersonRepository(),
         ),
+        RepositoryProvider<SettingsRepository>(
+          create: (context) => SettingsRepository(storageCubit: storageCubit),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
+          BlocProvider<StorageCubit>(
+            create: (BuildContext context) {
+              return storageCubit;
+            },
+          ),
           BlocProvider<PersonCubit>(
             create: (BuildContext context) {
               return PersonCubit(
                 personRepository: PersonRepository(),
               )..loadPersons();
+            },
+          ),
+          BlocProvider<SettingsCubit>(
+            create: (BuildContext context) {
+              return SettingsCubit(
+                settingsRepository: SettingsRepository(
+                  storageCubit: storageCubit,
+                ),
+              )..init();
             },
           ),
         ],
