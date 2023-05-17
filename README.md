@@ -1,6 +1,6 @@
-# bloc_sample
+# todo_sample
 
-This project is a sample project to demonstrate the use of BLoC pattern in Flutter.
+This project is a sample project to demonstrate a simple ToDO app in Flutter.
 
 It gives a basic architecture for the project.
 
