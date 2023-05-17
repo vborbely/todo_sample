@@ -31,13 +31,17 @@ class SettingsRepository {
   }
 
   Future<void> _subscription() async {
-    _storageService.boxStream(StorageType.preferences).listen((update) {
-      final key = SettingsKey.values.firstWhere((k) => k.name == update.key);
+    _storageService.boxStream(StorageType.preferences)?.listen((update) {
+      try {
+        final key = SettingsKey.values.firstWhere((k) => k.name == update.key);
 
-      final pref = update.value as HivePreferences;
-      final setting = _settings[key];
-      if (setting != null) {
-        _settings[key] = setting.copyWith(value: pref.asValue);
+        final pref = update.value as HivePreferences;
+        final setting = _settings[key];
+        if (setting != null) {
+          _settings[key] = setting.copyWith(value: pref.asValue);
+        }
+      } catch (e) {
+        logger.e('Error in SettingsRepository._subscription: $e');
       }
     });
   }

@@ -15,8 +15,13 @@ class StorageService {
   ];
   final List<Box> _openBoxes = [];
 
-  Stream<BoxEvent> boxStream(StorageType box) =>
-      _openBoxes[StorageType.preferences.index].watch();
+  Stream<BoxEvent>? boxStream(StorageType box) {
+    final index = StorageType.preferences.index;
+    if (index < _openBoxes.length) {
+      return _openBoxes[index].watch();
+    }
+    return null;
+  }
 
   Future<void> init() async {
     await initializeAdapters();
@@ -36,21 +41,24 @@ class StorageService {
       );
     }
     final key = await secureStorage.read(key: keyName);
-    _encryptionKey = base64Url.decode(key!);
+    if (key != null) {
+      _encryptionKey = base64Url.decode(key);
+    }
     logger.d('Encryption key Uint8List: $_encryptionKey');
   }
 
   Future<void> initializeBoxes() async {
     final key = _encryptionKey;
 
-    if (key != null) {
-      for (final box in _boxes) {
-        final openBox = await Hive.openBox(box.name,
-            encryptionCipher: box.secured ? HiveAesCipher(key) : null);
-        _openBoxes.add(openBox);
-      }
-    } else {
-      logger.e('Encryption key is null');
+    if (key == null) {
+      logger.i('Encryption key is null');
+    }
+
+    for (final box in _boxes) {
+      final openBox = await Hive.openBox(box.name,
+          encryptionCipher:
+              box.secured && key != null ? HiveAesCipher(key) : null);
+      _openBoxes.add(openBox);
     }
   }
 
