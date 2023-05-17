@@ -20,7 +20,6 @@ class SettingsCubit extends Cubit<SettingsCubitState> {
 
   Future<void> init() async {
     logger.d('SettingsCubit.init');
-    // _settingsRepository.init();
     emit(SettingsCubitState.loaded(settings: _settingsRepository.settings));
   }
 }
