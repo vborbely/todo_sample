@@ -8,10 +8,10 @@ It gives a basic architecture for the project.
 
 Main packages:
 
-- **bloc**: State management
-- **flutter_secure_storage**: Secure storage
-- **hive**: Local storage
-- **go_router**: Routing
+- **bloc:** State management
+- **flutter_secure_storage:** Secure storage
+- **hive:** Local storage
+- **go_router:** Routing
 
 ```
 
@@ -50,13 +50,13 @@ First, define the environment variable `dotenvFileName` to the name of the envir
 
 ### Build (Staging)
 
-- **Web**: flutter build -d chrome --dart-define dotenvFileName=env.staging
-- **MacOS:** flutter build -d macos --dart-define dotenvFileName=env.staging
+- **Web:** `flutter build -d chrome --dart-define dotenvFileName=env.staging`
+- **MacOS:** `flutter build -d macos --dart-define dotenvFileName=env.staging`
 
 ### Run (Staging)
 
-- **Web:** flutter run -d chrome --dart-define dotenvFileName=env.staging
-- **MacOS:** flutter run -d macos --dart-define dotenvFileName=env.staging
+- **Web:** `flutter run -d chrome --dart-define dotenvFileName=env.staging`
+- **MacOS:** `flutter run -d macos --dart-define dotenvFileName=env.staging`
 
 
 
