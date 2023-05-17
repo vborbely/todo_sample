@@ -29,7 +29,7 @@ void main() async {
     runApp(const AppMain());
   }, (error, stackTrace) {
     logger.e(error);
-    logger.e(stackTrace);
+    // logger.e(stackTrace);
     // FirebaseCrashlytics.instance.recordError(
     //   error,
     //   stackTrace,

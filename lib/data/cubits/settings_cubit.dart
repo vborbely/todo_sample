@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../application/application.dart';
 import '../data.dart';
 
 class SettingsCubit extends Cubit<SettingsCubitState> {
@@ -7,7 +8,9 @@ class SettingsCubit extends Cubit<SettingsCubitState> {
 
   SettingsCubit({required SettingsRepository settingsRepository})
       : _settingsRepository = settingsRepository,
-        super(const SettingsCubitState.init());
+        super(const SettingsCubitState.init()) {
+    emit(const SettingsCubitState.loading());
+  }
 
   void toggleSetting(Settings setting) {
     emit(const SettingsCubitState.loading());
@@ -15,8 +18,9 @@ class SettingsCubit extends Cubit<SettingsCubitState> {
     emit(SettingsCubitState.loaded(settings: _settingsRepository.settings));
   }
 
-  void init() {
-    _settingsRepository.init();
+  Future<void> init() async {
+    logger.d('SettingsCubit.init');
+    // _settingsRepository.init();
     emit(SettingsCubitState.loaded(settings: _settingsRepository.settings));
   }
 }

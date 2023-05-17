@@ -2,15 +2,12 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:bloc_sample/data/data.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../application/application.dart';
 
-class StorageCubit extends Cubit<StorageCubitState> {
-  StorageCubit() : super(const StorageCubitState.init());
-
+class StorageService {
   Uint8List? _encryptionKey;
   final List<StorageType> _boxes = [
     StorageType.preferences,
@@ -21,16 +18,10 @@ class StorageCubit extends Cubit<StorageCubitState> {
   Stream<BoxEvent> boxStream(StorageType box) =>
       _openBoxes[StorageType.preferences.index].watch();
 
-  // Stream<BoxEvent> get preferencesStream =>
-  //     _openBoxes[StorageTypes.preferences.index].watch();
-
   Future<void> init() async {
-    if (state is! StorageCubitInitializedState) {
-      await initializeAdapters();
-      await initializeSecureStorage();
-      await initializeBoxes();
-      emit(const StorageCubitState.initialized([]));
-    }
+    await initializeAdapters();
+    await initializeSecureStorage();
+    await initializeBoxes();
   }
 
   Future<void> initializeSecureStorage() async {

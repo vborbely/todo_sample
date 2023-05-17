@@ -1,10 +1,11 @@
+import '../../application/application.dart';
 import '../data.dart';
 
 class SettingsRepository {
-  final StorageCubit _storageCubit;
+  final StorageService _storageService;
 
-  SettingsRepository({required StorageCubit storageCubit})
-      : _storageCubit = storageCubit;
+  SettingsRepository({required StorageService storageCubit})
+      : _storageService = storageCubit;
 
   final Map<SettingsKey, Settings> _settings = {};
 
@@ -12,15 +13,16 @@ class SettingsRepository {
 
   Future<void> init() async {
     // load from StorageCubit
-    _loadAll();
-    _subscription();
+    logger.d('SettingsRepository.init');
+    await _loadAll();
+    await _subscription();
   }
 
   void setSettings(Settings newValue) {
     final type = PreferencesType.values.firstWhere(
         (pt) => pt.name == newValue.type.name,
         orElse: () => PreferencesType.string);
-    _storageCubit.writePreferences(HivePreferences(
+    _storageService.writePreferences(HivePreferences(
       createdAt: DateTime.now(),
       keyName: newValue.name.name,
       value: newValue.value.toString(),
@@ -28,8 +30,8 @@ class SettingsRepository {
     ));
   }
 
-  void _subscription() {
-    _storageCubit.boxStream(StorageType.preferences).listen((update) {
+  Future<void> _subscription() async {
+    _storageService.boxStream(StorageType.preferences).listen((update) {
       final key = SettingsKey.values.firstWhere((k) => k.name == update.key);
 
       final pref = update.value as HivePreferences;
@@ -40,12 +42,12 @@ class SettingsRepository {
     });
   }
 
-  void _loadAll() {
+  Future<void> _loadAll() async {
     _settings.clear();
     _settings.addAll(getDefaults());
     for (final key in SettingsKey.values) {
       final settings = _settings[key];
-      final fromPref = _storageCubit.readPreferences(key.name);
+      final fromPref = _storageService.readPreferences(key.name);
       if (settings != null && fromPref != null) {
         _settings[key] = settings.copyWith(value: fromPref.asValue);
       }

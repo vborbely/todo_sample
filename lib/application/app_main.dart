@@ -5,13 +5,60 @@ import 'package:flutter_flavor/flutter_flavor.dart';
 import '../presentation/presentation.dart';
 import 'application.dart';
 
-class AppMain extends StatelessWidget {
+class AppMain extends StatefulWidget {
   const AppMain({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final storageCubit = StorageCubit()..init();
+  State<AppMain> createState() => _AppMainState();
+}
 
+class _AppMainState extends State<AppMain> {
+  late StorageService _storageService;
+  late SettingsRepository _settingsRepository;
+  bool _allInitialized = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _beforeStartup();
+  }
+
+  Future<bool> _beforeStartup() async {
+    _storageService = StorageService();
+    await _storageService.init();
+    _settingsRepository = SettingsRepository(storageCubit: _storageService);
+    await _settingsRepository.init();
+    _allInitialized = true;
+    return _allInitialized;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: _beforeStartup(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData && snapshot.data == true) {
+          return _LauncherApp(
+            settingsRepository: _settingsRepository,
+          );
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
+    );
+  }
+}
+
+class _LauncherApp extends StatelessWidget {
+  final SettingsRepository settingsRepository;
+
+  const _LauncherApp({Key? key, required this.settingsRepository})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       // MOCK if needed
       providers: [
@@ -19,16 +66,11 @@ class AppMain extends StatelessWidget {
           create: (context) => PersonRepository(),
         ),
         RepositoryProvider<SettingsRepository>(
-          create: (context) => SettingsRepository(storageCubit: storageCubit),
+          create: (context) => settingsRepository,
         ),
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<StorageCubit>(
-            create: (BuildContext context) {
-              return storageCubit;
-            },
-          ),
           BlocProvider<PersonCubit>(
             create: (BuildContext context) {
               return PersonCubit(
@@ -39,26 +81,35 @@ class AppMain extends StatelessWidget {
           BlocProvider<SettingsCubit>(
             create: (BuildContext context) {
               return SettingsCubit(
-                settingsRepository: SettingsRepository(
-                  storageCubit: storageCubit,
-                ),
+                settingsRepository: settingsRepository,
               )..init();
             },
           ),
         ],
-        child: MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          // localization
-          title: 'Flutter Bloc Sample',
-          theme: ThemeData(
-            primarySwatch: Colors.lime,
-          ),
-          routerConfig: router,
-          builder: (ctx, widget) => Navigator(
-            onGenerateRoute: (_) => MaterialPageRoute(
-              builder: (_) => FlavorBanner(child: widget!),
-            ),
-          ),
+        child: BlocBuilder<SettingsCubit, SettingsCubitState>(
+          builder: (_, settingsState) {
+            final theme = settingsState.maybeWhen(
+              loaded: (settings) => settings[SettingsKey.darkMode]?.asValue,
+              orElse: () => true,
+            );
+
+            return MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              // localization
+              title: 'Flutter Bloc Sample',
+              theme: !theme
+                  ? ThemeData(
+                      primarySwatch: Colors.lime,
+                    )
+                  : ThemeData.dark(),
+              routerConfig: router,
+              builder: (ctx, widget) => Navigator(
+                onGenerateRoute: (_) => MaterialPageRoute(
+                  builder: (_) => FlavorBanner(child: widget!),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

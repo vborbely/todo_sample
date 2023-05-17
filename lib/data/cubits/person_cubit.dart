@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../application/application.dart';
 import '../data.dart';
 
 class PersonCubit extends Cubit<PersonCubitState> {
@@ -23,6 +24,7 @@ class PersonCubit extends Cubit<PersonCubitState> {
         super(const PersonCubitState.init());
 
   void loadPersons() {
+    logger.d('PersonCubit.loadPersons');
     emit(const PersonCubitState.loading());
     _personRepository.loadPersons();
     emit(PersonCubitState.loaded(
