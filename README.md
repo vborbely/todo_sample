@@ -1,4 +1,4 @@
-# todo_sample
+# YouDo! app
 
 This project is a sample project to demonstrate a simple ToDO app in Flutter.
 
