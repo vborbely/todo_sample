@@ -1,5 +1,5 @@
-import 'package:bloc_sample/application/errors/error.dart' as E;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:todo_sample/application/errors/error.dart' as E;
 
 import '../data.dart';
 

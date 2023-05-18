@@ -24,7 +24,6 @@ mixin _$SettingsCubitState {
     required TResult Function(E.Error error) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
@@ -42,7 +41,6 @@ mixin _$SettingsCubitState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SettingsCubitInitState value) init,
@@ -51,7 +49,6 @@ mixin _$SettingsCubitState {
     required TResult Function(SettingsCubitErrorState value) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SettingsCubitInitState value)? init,
@@ -83,7 +80,7 @@ class _$SettingsCubitStateCopyWithImpl<$Res, $Val extends SettingsCubitState>
     implements $SettingsCubitStateCopyWith<$Res> {
   _$SettingsCubitStateCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
 // ignore: unused_field
   final $Res Function($Val) _then;
@@ -363,7 +360,7 @@ class _$SettingsCubitLoadedState implements SettingsCubitLoadedState {
   @JsonKey()
   Map<SettingsKey, Settings> get settings {
     if (_settings is EqualUnmodifiableMapView) return _settings;
-// ignore: implicit_dynamic_type
+    // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_settings);
   }
 

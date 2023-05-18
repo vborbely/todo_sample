@@ -1,4 +1,4 @@
-import 'package:bloc_sample/application/errors/error.dart' as e;
+import 'package:todo_sample/application/errors/error.dart' as e;
 
 import '../presentation.dart';
 

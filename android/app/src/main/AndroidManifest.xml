@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.bloc_sample">
+          package="com.example.todo_sample">
     <application
-            android:label="bloc_sample"
+            android:label="todo_sample"
             android:name="${applicationName}"
             android:icon="@mipmap/ic_launcher">
         <activity

@@ -49,7 +49,6 @@ mixin _$PersonCubitState {
     required TResult Function(PersonCubitErrorState value) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PersonCubitInitState value)? init,
@@ -81,7 +80,7 @@ class _$PersonCubitStateCopyWithImpl<$Res, $Val extends PersonCubitState>
     implements $PersonCubitStateCopyWith<$Res> {
   _$PersonCubitStateCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
 // ignore: unused_field
   final $Res Function($Val) _then;
@@ -323,6 +322,8 @@ abstract class _$$PersonCubitLoadedStateCopyWith<$Res> {
       __$$PersonCubitLoadedStateCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Person> persons, Person? selected});
+
+  $PersonCopyWith<$Res>? get selected;
 }
 
 /// @nodoc
@@ -350,6 +351,18 @@ class __$$PersonCubitLoadedStateCopyWithImpl<$Res>
               as Person?,
     ));
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PersonCopyWith<$Res>? get selected {
+    if (_value.selected == null) {
+      return null;
+    }
+
+    return $PersonCopyWith<$Res>(_value.selected!, (value) {
+      return _then(_value.copyWith(selected: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -364,7 +377,7 @@ class _$PersonCubitLoadedState implements PersonCubitLoadedState {
   @JsonKey()
   List<Person> get persons {
     if (_persons is EqualUnmodifiableListView) return _persons;
-// ignore: implicit_dynamic_type
+    // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_persons);
   }
 

@@ -1,6 +1,6 @@
-import 'package:bloc_sample/data/data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
+import 'package:todo_sample/data/data.dart';
 
 import '../presentation/presentation.dart';
 import 'application.dart';
@@ -62,6 +62,9 @@ class _LauncherApp extends StatelessWidget {
     return MultiRepositoryProvider(
       // MOCK if needed
       providers: [
+        RepositoryProvider<TodoRepository>(
+          create: (context) => TodoRepository(),
+        ),
         RepositoryProvider<PersonRepository>(
           create: (context) => PersonRepository(),
         ),
@@ -71,6 +74,13 @@ class _LauncherApp extends StatelessWidget {
       ],
       child: MultiBlocProvider(
         providers: [
+          BlocProvider<TodoCubit>(
+            create: (BuildContext context) {
+              return TodoCubit(
+                todoRepository: TodoRepository(),
+              )..loadTodos();
+            },
+          ),
           BlocProvider<PersonCubit>(
             create: (BuildContext context) {
               return PersonCubit(

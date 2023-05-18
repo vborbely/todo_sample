@@ -11,20 +11,20 @@ class PersonRepository {
 
   void init() {
     _persons.addAll([
-      Person(
+      const Person(
         id: 1,
         name: 'John',
-        age: 20,
+        email: "john@example.com",
       ),
-      Person(
+      const Person(
         id: 2,
         name: 'Jane',
-        age: 21,
+        email: "jane@example.com",
       ),
-      Person(
+      const Person(
         id: 3,
         name: 'Jack',
-        age: 22,
+        email: "jack@example.com",
       ),
     ]);
   }
@@ -32,8 +32,8 @@ class PersonRepository {
   Person addPerson(Person person) {
     final Person? newPerson;
     if (person.id == 0) {
-      newPerson =
-          Person(id: _persons.length + 1, name: person.name, age: person.age);
+      newPerson = Person(
+          id: _persons.length + 1, name: person.name, email: person.email);
     } else {
       newPerson = person;
     }

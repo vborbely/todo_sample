@@ -10,6 +10,10 @@ class NetworkError extends Error {
       : super(code, message);
 }
 
+class TodoError extends Error {
+  TodoError({String? message = "Todo Error"}) : super(null, message);
+}
+
 class GenericError extends Error {
   GenericError({String? code = "999", String? message = "Generic Error"})
       : super(code, message);

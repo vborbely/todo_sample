@@ -1,6 +1,6 @@
-import 'package:bloc_sample/application/application.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:todo_sample/application/application.dart';
 
 import '../../data/data.dart';
 import '../presentation.dart';
@@ -12,7 +12,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Screen'),
+        flexibleSpace: const AppBarColorize(),
+        title: const Text(
+          'YouDo',
+          style: appBarTextStyle,
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -22,8 +26,8 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: const _AddPersonButton(),
-      body: const _ScreenBody(child: _PersonList()),
+      floatingActionButton: const _AddTodoButton(),
+      body: const _ScreenBody(child: _TodoList()),
     );
   }
 }
@@ -35,26 +39,25 @@ class _ScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        _PersonList(),
+      children: [
+        _TodoList(),
       ],
     );
   }
 }
 
-class _PersonList extends StatelessWidget {
-  const _PersonList({Key? key}) : super(key: key);
+class _TodoList extends StatelessWidget {
+  const _TodoList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final maxHeight = MediaQuery.of(context).size.height;
-    final controller = context.watch<PersonCubit>();
-    return BlocBuilder<PersonCubit, PersonCubitState>(
-        builder: (context, state) {
-      final persons = state.maybeWhen(
-          loaded: (persons, _) => persons, orElse: () => <Person>[]);
+    final controller = context.watch<TodoCubit>();
+    return BlocBuilder<TodoCubit, TodoCubitState>(builder: (context, state) {
+      final todos =
+          state.maybeWhen(loaded: (todos, _) => todos, orElse: () => <Todo>[]);
       return Container(
         constraints: BoxConstraints(maxWidth: 300, maxHeight: maxHeight),
         // Fix: Material widget needs to prevent the ListView paint outboundaries,
@@ -62,57 +65,44 @@ class _PersonList extends StatelessWidget {
         child: Material(
           child: ListView.builder(
             shrinkWrap: true,
-                itemCount: persons.length,
-                itemBuilder: (context, index) {
-                  final person = persons[index];
-                  return Padding(
-                    padding:
+            itemCount: todos.length,
+            itemBuilder: (context, index) {
+              final todo = todos[index];
+              return Padding(
+                padding:
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: GestureDetector(
-                      onTap: () {
-                        controller.selectPerson(person);
-                        context.go('/person/${person.id}');
-                      },
-                      child: ListTile(
-                        tileColor: Colors.orangeAccent,
-                        minVerticalPadding: 5,
-                        style: ListTileStyle.list,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        title: Text(person.name),
-                        subtitle: Text('${person.age} years old'),
-                        trailing: IconButton(
-                          icon: const Icon(Icons.delete),
-                          onPressed: () {
-                            controller.deletePerson(person);
-                          },
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-          );
-        });
+                child: GestureDetector(
+                  onTap: () {
+                    controller.selectTodo(todo);
+                    context.go('/todo/${todo.id}');
+                  },
+                  child: TodoWidget(
+                    todo: todo,
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      );
+    });
   }
 }
 
-class _AddPersonButton extends StatelessWidget {
-  const _AddPersonButton({Key? key}) : super(key: key);
+class _AddTodoButton extends StatelessWidget {
+  const _AddTodoButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final personCubit = context.watch<PersonCubit>();
+    final todoCubit = context.watch<TodoCubit>();
     return FloatingActionButton(
       onPressed: () {
-        final person = Person(
+        final todo = Todo(
           id: 0,
-          name: 'Person ${personCubit.persons.length + 1}',
-          age: 20,
+          title: 'New todo',
+          created: DateTime.now(),
         );
-        personCubit.addPerson(person);
+        todoCubit.addTodo(todo);
       },
       child: const Icon(Icons.add),
     );

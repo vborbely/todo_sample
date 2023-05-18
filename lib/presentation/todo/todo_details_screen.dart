@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/data.dart';
 import '../presentation.dart';
 
-class PersonDetailsScreen extends StatelessWidget {
-  const PersonDetailsScreen({Key? key}) : super(key: key);
+class TodoDetailsScreen extends StatelessWidget {
+  const TodoDetailsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +17,9 @@ class _ScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PersonCubit, PersonCubitState>(builder: (ctx, state) {
+    return BlocBuilder<TodoCubit, TodoCubitState>(builder: (ctx, state) {
       return state.maybeWhen(
-        loaded: (_, selected) => _Body(person: selected),
+        loaded: (_, selected) => _Body(todo: selected),
         error: (error) => MyErrorWidget(error: error),
         orElse: () => const MyErrorWidget(),
       );
@@ -28,30 +28,26 @@ class _ScreenBody extends StatelessWidget {
 }
 
 class _Body extends StatelessWidget {
-  final Person? person;
+  final Todo? todo;
 
-  const _Body({Key? key, required this.person}) : super(key: key);
+  const _Body({Key? key, required this.todo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        flexibleSpace: const AppBarColorize(),
+        title: const Text(
+          'Details',
+          style: appBarTextStyle,
+        ),
+      ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(person?.name ?? 'No name'),
+          Text(todo?.title ?? 'No name'),
         ],
       ),
-    );
-  }
-}
-
-class _Error extends StatelessWidget {
-  const _Error({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Error happened'),
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:bloc_sample/presentation/person/persion_details_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../presentation/presentation.dart';
@@ -6,6 +5,7 @@ import '../../presentation/presentation.dart';
 abstract class AppRoute {
   static const String home = '/';
   static const String personDetails = '/personDetails';
+  static const String todoDetails = '/todoDetails';
   static const String settings = '/settings';
 }
 
@@ -21,6 +21,11 @@ final router = GoRouter(
       name: AppRoute.personDetails,
       path: '/person/:id',
       builder: (context, state) => const PersonDetailsScreen(),
+    ),
+    GoRoute(
+      name: AppRoute.todoDetails,
+      path: '/todo/:id',
+      builder: (context, state) => const TodoDetailsScreen(),
     ),
     GoRoute(
       name: AppRoute.settings,

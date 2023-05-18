@@ -1,6 +1,6 @@
-import 'package:bloc_sample/application/errors/error.dart' as E;
-import 'package:bloc_sample/data/data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:todo_sample/application/errors/error.dart' as E;
+import 'package:todo_sample/data/data.dart';
 
 part 'settings_cubit_state.freezed.dart';
 
