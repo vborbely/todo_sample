@@ -58,6 +58,14 @@ First, define the environment variable `dotenvFileName` to the name of the envir
 - **Web:** `flutter run -d chrome --dart-define dotenvFileName=env.staging`
 - **MacOS:** `flutter run -d macos --dart-define dotenvFileName=env.staging`
 
+## Launcher icon replacement
+
+1. Copy the 512x512 px image to the `assets/icons/launcher_icon.png` path
+
+2. Generate the Launcher icon by running the following command
+   `flutter pub run flutter_launcher_icons:main`
+
+
 
 
 

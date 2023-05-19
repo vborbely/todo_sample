@@ -1,5 +1,8 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 class Settings {
   final String label;
+  final String? description;
   final SettingsKey name;
   final dynamic value;
   final dynamic defaultValue;
@@ -7,6 +10,7 @@ class Settings {
 
   Settings({
     required this.label,
+    @Default(null) this.description,
     required this.value,
     required this.defaultValue,
     required this.name,
@@ -15,6 +19,7 @@ class Settings {
 
   Settings copyWith({
     String? label,
+    String? description,
     SettingsKey? name,
     dynamic value,
     dynamic defaultValue,
@@ -22,6 +27,7 @@ class Settings {
   }) {
     return Settings(
       label: label ?? this.label,
+      description: description ?? this.description,
       name: name ?? this.name,
       value: value ?? this.value,
       defaultValue: defaultValue ?? this.defaultValue,
@@ -34,12 +40,12 @@ extension SettingsExt on Settings {
   dynamic get asValue => type == SettingsType.bool
       ? value as bool
       : type == SettingsType.double
-          ? value as double
-          : type == SettingsType.int
-              ? value as int
-              : type == SettingsType.string
-                  ? value as String
-                  : value as String;
+      ? value as double
+      : type == SettingsType.int
+      ? value as int
+      : type == SettingsType.string
+      ? value as String
+      : value as String;
 }
 
 enum SettingsKey {

@@ -21,19 +21,13 @@ TodoAssigned _$TodoAssignedFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TodoAssigned {
   Todo get todo => throw _privateConstructorUsedError;
-
   TodoStatus get status => throw _privateConstructorUsedError;
-
   Person get assignedTo => throw _privateConstructorUsedError;
-
   DateTime? get expireDate => throw _privateConstructorUsedError;
-
   DateTime get assigned => throw _privateConstructorUsedError;
-
   DateTime? get completed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $TodoAssignedCopyWith<TodoAssigned> get copyWith =>
       throw _privateConstructorUsedError;
@@ -44,7 +38,6 @@ abstract class $TodoAssignedCopyWith<$Res> {
   factory $TodoAssignedCopyWith(
           TodoAssigned value, $Res Function(TodoAssigned) then) =
       _$TodoAssignedCopyWithImpl<$Res, TodoAssigned>;
-
   @useResult
   $Res call(
       {Todo todo,
@@ -55,7 +48,6 @@ abstract class $TodoAssignedCopyWith<$Res> {
       DateTime? completed});
 
   $TodoCopyWith<$Res> get todo;
-
   $PersonCopyWith<$Res> get assignedTo;
 }
 
@@ -66,7 +58,6 @@ class _$TodoAssignedCopyWithImpl<$Res, $Val extends TodoAssigned>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -131,7 +122,6 @@ abstract class _$$_TodoAssignedCopyWith<$Res>
   factory _$$_TodoAssignedCopyWith(
           _$_TodoAssigned value, $Res Function(_$_TodoAssigned) then) =
       __$$_TodoAssignedCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -144,7 +134,6 @@ abstract class _$$_TodoAssignedCopyWith<$Res>
 
   @override
   $TodoCopyWith<$Res> get todo;
-
   @override
   $PersonCopyWith<$Res> get assignedTo;
 }
@@ -275,7 +264,6 @@ abstract class _TodoAssigned extends TodoAssigned {
       final DateTime? expireDate,
       required final DateTime assigned,
       final DateTime? completed}) = _$_TodoAssigned;
-
   const _TodoAssigned._() : super._();
 
   factory _TodoAssigned.fromJson(Map<String, dynamic> json) =
@@ -283,22 +271,16 @@ abstract class _TodoAssigned extends TodoAssigned {
 
   @override
   Todo get todo;
-
   @override
   TodoStatus get status;
-
   @override
   Person get assignedTo;
-
   @override
   DateTime? get expireDate;
-
   @override
   DateTime get assigned;
-
   @override
   DateTime? get completed;
-
   @override
   @JsonKey(ignore: true)
   _$$_TodoAssignedCopyWith<_$_TodoAssigned> get copyWith =>

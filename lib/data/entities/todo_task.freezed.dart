@@ -21,15 +21,11 @@ TodoTask _$TodoTaskFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TodoTask {
   int get id => throw _privateConstructorUsedError;
-
   String? get description => throw _privateConstructorUsedError;
-
   String? get icon => throw _privateConstructorUsedError;
-
   bool? get completed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $TodoTaskCopyWith<TodoTask> get copyWith =>
       throw _privateConstructorUsedError;
@@ -39,7 +35,6 @@ mixin _$TodoTask {
 abstract class $TodoTaskCopyWith<$Res> {
   factory $TodoTaskCopyWith(TodoTask value, $Res Function(TodoTask) then) =
       _$TodoTaskCopyWithImpl<$Res, TodoTask>;
-
   @useResult
   $Res call({int id, String? description, String? icon, bool? completed});
 }
@@ -51,7 +46,6 @@ class _$TodoTaskCopyWithImpl<$Res, $Val extends TodoTask>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -89,7 +83,6 @@ abstract class _$$_TodoTaskCopyWith<$Res> implements $TodoTaskCopyWith<$Res> {
   factory _$$_TodoTaskCopyWith(
           _$_TodoTask value, $Res Function(_$_TodoTask) then) =
       __$$_TodoTaskCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({int id, String? description, String? icon, bool? completed});
@@ -200,23 +193,18 @@ abstract class _TodoTask extends TodoTask {
       final String? description,
       final String? icon,
       final bool? completed}) = _$_TodoTask;
-
   const _TodoTask._() : super._();
 
   factory _TodoTask.fromJson(Map<String, dynamic> json) = _$_TodoTask.fromJson;
 
   @override
   int get id;
-
   @override
   String? get description;
-
   @override
   String? get icon;
-
   @override
   bool? get completed;
-
   @override
   @JsonKey(ignore: true)
   _$$_TodoTaskCopyWith<_$_TodoTask> get copyWith =>

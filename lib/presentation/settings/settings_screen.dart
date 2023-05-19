@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_sample/application/application.dart';
 
 import '../../data/data.dart';
 import '../presentation.dart';
@@ -56,7 +57,7 @@ class _SettingsList extends StatelessWidget {
       children: [
         ...settings.values
             .map((setting) => _SettingsItem(
-                  label: setting.label,
+          settings: setting,
                   isSelected: setting.value,
                   onChanged: () =>
                       context.read<SettingsCubit>().toggleSetting(setting),
@@ -68,13 +69,13 @@ class _SettingsList extends StatelessWidget {
 }
 
 class _SettingsItem extends StatelessWidget {
-  final String label;
+  final Settings settings;
   final bool isSelected;
   final Function onChanged;
 
   const _SettingsItem({
     Key? key,
-    required this.label,
+    required this.settings,
     required this.isSelected,
     required this.onChanged,
   }) : super(key: key);
@@ -85,7 +86,22 @@ class _SettingsItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: Row(
         children: [
-          Text(label),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                settings.label,
+                style: const TextStyle(fontWeight: FontWeight.w600),
+              ),
+              Visibility(
+                  visible: settings.description != null,
+                  child: Text(settings.description ?? '',
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: AppColors.descriptionTextColor,
+                      ))),
+            ],
+          ),
           const Spacer(),
           Switch(
             value: isSelected,

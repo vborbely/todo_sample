@@ -44,7 +44,7 @@ class StorageService {
     if (key != null) {
       _encryptionKey = base64Url.decode(key);
     }
-    logger.d('Encryption key Uint8List: $_encryptionKey');
+    // logger.d('Encryption key Uint8List: $_encryptionKey');
   }
 
   Future<void> initializeBoxes() async {
@@ -52,6 +52,8 @@ class StorageService {
 
     if (key == null) {
       logger.i('Encryption key is null');
+    } else {
+      logger.i('Encrypted data is enabled');
     }
 
     for (final box in _boxes) {

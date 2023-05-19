@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              context.go(AppRoute.settings);
+              context.push(AppRoute.settings);
             },
             icon: const Icon(Icons.settings),
           ),
@@ -74,7 +74,7 @@ class _TodoList extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     controller.selectTodo(todo);
-                    context.go('/todo/${todo.id}');
+                    context.push('/todo/${todo.id}');
                   },
                   child: TodoWidget(
                     todo: todo,

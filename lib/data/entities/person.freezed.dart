@@ -21,13 +21,10 @@ Person _$PersonFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Person {
   int get id => throw _privateConstructorUsedError;
-
   String get name => throw _privateConstructorUsedError;
-
   String get email => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $PersonCopyWith<Person> get copyWith => throw _privateConstructorUsedError;
 }
@@ -36,7 +33,6 @@ mixin _$Person {
 abstract class $PersonCopyWith<$Res> {
   factory $PersonCopyWith(Person value, $Res Function(Person) then) =
       _$PersonCopyWithImpl<$Res, Person>;
-
   @useResult
   $Res call({int id, String name, String email});
 }
@@ -48,7 +44,6 @@ class _$PersonCopyWithImpl<$Res, $Val extends Person>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -80,7 +75,6 @@ class _$PersonCopyWithImpl<$Res, $Val extends Person>
 abstract class _$$_PersonCopyWith<$Res> implements $PersonCopyWith<$Res> {
   factory _$$_PersonCopyWith(_$_Person value, $Res Function(_$_Person) then) =
       __$$_PersonCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({int id, String name, String email});
@@ -171,20 +165,16 @@ abstract class _Person extends Person {
       {required final int id,
       required final String name,
       required final String email}) = _$_Person;
-
   const _Person._() : super._();
 
   factory _Person.fromJson(Map<String, dynamic> json) = _$_Person.fromJson;
 
   @override
   int get id;
-
   @override
   String get name;
-
   @override
   String get email;
-
   @override
   @JsonKey(ignore: true)
   _$$_PersonCopyWith<_$_Person> get copyWith =>

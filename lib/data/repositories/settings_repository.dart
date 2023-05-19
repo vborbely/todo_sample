@@ -62,6 +62,7 @@ class SettingsRepository {
     final defaults = {
       SettingsKey.darkMode: Settings(
         label: 'Dark Mode',
+        description: 'Change between light and dark mode',
         name: SettingsKey.darkMode,
         value: false,
         defaultValue: false,

@@ -21,19 +21,13 @@ Todo _$TodoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Todo {
   int get id => throw _privateConstructorUsedError;
-
   String get title => throw _privateConstructorUsedError;
-
   String? get description => throw _privateConstructorUsedError;
-
   String? get icon => throw _privateConstructorUsedError;
-
   List<TodoTask> get tasks => throw _privateConstructorUsedError;
-
   DateTime get created => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
 }
@@ -42,7 +36,6 @@ mixin _$Todo {
 abstract class $TodoCopyWith<$Res> {
   factory $TodoCopyWith(Todo value, $Res Function(Todo) then) =
       _$TodoCopyWithImpl<$Res, Todo>;
-
   @useResult
   $Res call(
       {int id,
@@ -60,7 +53,6 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -107,7 +99,6 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
 abstract class _$$_TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
   factory _$$_TodoCopyWith(_$_Todo value, $Res Function(_$_Todo) then) =
       __$$_TodoCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -190,7 +181,6 @@ class _$_Todo extends _Todo {
   @JsonKey()
   final String? icon;
   final List<TodoTask> _tasks;
-
   @override
   @JsonKey()
   List<TodoTask> get tasks {
@@ -248,29 +238,22 @@ abstract class _Todo extends Todo {
       final String? icon,
       final List<TodoTask> tasks,
       required final DateTime created}) = _$_Todo;
-
   const _Todo._() : super._();
 
   factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
 
   @override
   int get id;
-
   @override
   String get title;
-
   @override
   String? get description;
-
   @override
   String? get icon;
-
   @override
   List<TodoTask> get tasks;
-
   @override
   DateTime get created;
-
   @override
   @JsonKey(ignore: true)
   _$$_TodoCopyWith<_$_Todo> get copyWith => throw _privateConstructorUsedError;

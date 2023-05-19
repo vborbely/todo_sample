@@ -24,7 +24,6 @@ mixin _$TodoCubitState {
     required TResult Function(TodoError error) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
@@ -42,7 +41,6 @@ mixin _$TodoCubitState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(TodoCubitInitState value) init,
@@ -51,7 +49,6 @@ mixin _$TodoCubitState {
     required TResult Function(TodoCubitErrorState value) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TodoCubitInitState value)? init,
@@ -83,9 +80,9 @@ class _$TodoCubitStateCopyWithImpl<$Res, $Val extends TodoCubitState>
     implements $TodoCubitStateCopyWith<$Res> {
   _$TodoCubitStateCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
-// ignore: unused_field
+  // ignore: unused_field
   final $Res Function($Val) _then;
 }
 
@@ -379,7 +376,7 @@ class _$TodoCubitLoadedState implements TodoCubitLoadedState {
   @JsonKey()
   List<Todo> get todos {
     if (_todos is EqualUnmodifiableListView) return _todos;
-// ignore: implicit_dynamic_type
+    // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_todos);
   }
 

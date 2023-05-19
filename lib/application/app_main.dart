@@ -98,20 +98,17 @@ class _LauncherApp extends StatelessWidget {
         ],
         child: BlocBuilder<SettingsCubit, SettingsCubitState>(
           builder: (_, settingsState) {
-            final theme = settingsState.maybeWhen(
-              loaded: (settings) => settings[SettingsKey.darkMode]?.asValue,
+            final isLight = settingsState.maybeWhen(
+              loaded: (settings) =>
+                  settings[SettingsKey.darkMode]?.asValue != true,
               orElse: () => true,
             );
 
             return MaterialApp.router(
               debugShowCheckedModeBanner: false,
               // localization
-              title: 'Flutter Bloc Sample',
-              theme: !theme
-                  ? ThemeData(
-                      primarySwatch: Colors.lime,
-                    )
-                  : ThemeData.dark(),
+              title: 'YouDo app',
+              theme: themeData(isLight),
               routerConfig: router,
               builder: (ctx, widget) => Navigator(
                 onGenerateRoute: (_) => MaterialPageRoute(
